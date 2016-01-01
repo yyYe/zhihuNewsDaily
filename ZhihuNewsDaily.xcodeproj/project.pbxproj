@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		02E01B92F02218BF0F03CB50 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACAF1271BCC34B6699C6601 /* libPods.a */; };
+		19AD938C1C36BA6C006DF16F /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AD938B1C36BA6C006DF16F /* BaseVC.m */; };
+		19AD938F1C36BA7F006DF16F /* BaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AD938E1C36BA7F006DF16F /* BaseTableVC.m */; };
 		19B9561E1C34F4D00035C50B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B9561D1C34F4D00035C50B /* main.m */; };
 		19B956211C34F4D00035C50B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B956201C34F4D00035C50B /* AppDelegate.m */; };
 		19B956241C34F4D00035C50B /* HomePageNewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B956231C34F4D00035C50B /* HomePageNewsVC.m */; };
@@ -24,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19AD938A1C36BA6C006DF16F /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		19AD938B1C36BA6C006DF16F /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
+		19AD938D1C36BA7F006DF16F /* BaseTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableVC.h; sourceTree = "<group>"; };
+		19AD938E1C36BA7F006DF16F /* BaseTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableVC.m; sourceTree = "<group>"; };
 		19B956191C34F4D00035C50B /* ZhihuNewsDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuNewsDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B9561D1C34F4D00035C50B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19B9561F1C34F4D00035C50B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19AD93891C36BA5C006DF16F /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				19AD938A1C36BA6C006DF16F /* BaseVC.h */,
+				19AD938B1C36BA6C006DF16F /* BaseVC.m */,
+				19AD938D1C36BA7F006DF16F /* BaseTableVC.h */,
+				19AD938E1C36BA7F006DF16F /* BaseTableVC.m */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
 		19B956101C34F4D00035C50B = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +103,7 @@
 		19B9561B1C34F4D00035C50B /* ZhihuNewsDaily */ = {
 			isa = PBXGroup;
 			children = (
+				19AD93891C36BA5C006DF16F /* BaseVC */,
 				19B956351C34F5370035C50B /* Controller */,
 				19B956341C34F52D0035C50B /* Model */,
 				19B956331C34F5270035C50B /* View */,
@@ -292,8 +310,10 @@
 				19B956561C3573330035C50B /* LoginPageVC.m in Sources */,
 				19B9563B1C34FB900035C50B /* GetNetworkData.m in Sources */,
 				19B956211C34F4D00035C50B /* AppDelegate.m in Sources */,
+				19AD938F1C36BA7F006DF16F /* BaseTableVC.m in Sources */,
 				19B9561E1C34F4D00035C50B /* main.m in Sources */,
 				19B956471C35239B0035C50B /* TopStoriesCell.m in Sources */,
+				19AD938C1C36BA6C006DF16F /* BaseVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
