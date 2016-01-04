@@ -49,6 +49,7 @@
 - (void)showContext {
     
     self.view.backgroundColor = getColor(0.93, 0.98, 0.94);
+    self.tableView.userInteractionEnabled = YES;
     
     [self navigationsController];
     [self TableView];
@@ -62,7 +63,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.navigationController.navigationBar.hidden = NO;
 }
 
@@ -309,46 +309,10 @@
 }
 
 - (void)btnSelectAppend {
-//    SelectBtnVC *selectVC = [SelectBtnVC new];
-//    [self.navigationController addChildViewController:selectVC];
-//    [self.navigationController.view addSubview:selectVC.view];
+    SelectBtnVC *selectVC = [SelectBtnVC new];
+    [self.navigationController addChildViewController:selectVC];
+    [self.navigationController.view addSubview:selectVC.view];
     
-    view = [UIView new];
-    view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController.view addSubview:view];
-    
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.navigationController.view).offset(-5);
-        make.top.equalTo(self.navigationController.view).offset(5);
-        make.height.equalTo(@(btnHeight *2));
-        make.width.equalTo(@180);
-    }];
-    
-    UIButton *returnBtn = btnStyle;
-    btnTitleColor(returnBtn);
-    btnHorizontal(returnBtn);
-    btnWidth(returnBtn);
-    [returnBtn setTitle:@"夜间模式" forState:UIControlStateNormal];
-    [view addSubview:returnBtn];
-    
-    UIButton *setUpBtn = btnStyle;
-    btnTitleColor(setUpBtn);
-    btnHorizontal(setUpBtn);
-    btnWidth(setUpBtn);
-    [setUpBtn setTitle:@"设置选项" forState:UIControlStateNormal];
-    [view addSubview:setUpBtn];
-    
-    [returnBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(view);
-        make.height.equalTo(setUpBtn);
-        make.bottom.equalTo(setUpBtn.mas_top);
-    }];
-    
-    [setUpBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.left.right.equalTo(view);
-        make.height.equalTo(returnBtn);
-        make.top.equalTo(returnBtn.mas_bottom);
-    }];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

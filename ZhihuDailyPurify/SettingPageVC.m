@@ -85,12 +85,8 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    }else if (section == 1) {
-        return 1;
-    }
-    return 12;
+    NSArray *list = [self.dataArray objectAtIndex:section];
+    return list.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,6 +98,7 @@
         return 44.f;
 }
 
+//设置cell点击不会改变cell的背景颜色
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *list = [self.dataArray objectAtIndex:indexPath.section];
     id obj = [list objectAtIndex:indexPath.row];
@@ -114,6 +111,7 @@
         cell.backgroundColor = BackgroundColor;
     }else if (indexPath.section == 1) {
         ((HeaderPhotoCell *)cell).dicData = obj;
+        cell.backgroundColor = getColor(0.85, 0.85, 0.85);
     }else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"AppendNewsCell"];
         ((AppendNewsCell *)cell).dictData = obj;

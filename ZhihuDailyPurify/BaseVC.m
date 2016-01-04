@@ -24,7 +24,6 @@
     self.tableView = [UITableView new];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.userInteractionEnabled = NO;
     [self.view addSubview:self.tableView];
     
     [self showContext];

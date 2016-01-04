@@ -60,7 +60,6 @@
     }];
 }
 
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     view.hidden = YES;
     [self.navigationController popViewControllerAnimated:YES];

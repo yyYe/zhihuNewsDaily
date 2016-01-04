@@ -25,7 +25,7 @@
     [self addSubview:self.ivPhoto];
     
     [self.ivPhoto mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-100);
+        make.right.equalTo(self).offset(-50);
         make.centerY.equalTo(self);
     }];
 }
