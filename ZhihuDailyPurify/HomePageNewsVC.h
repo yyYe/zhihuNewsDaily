@@ -6,9 +6,9 @@
 //  Copyright © 2015年 yeyy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseVC.h"
 
-@interface HomePageNewsVC : UIViewController
+@interface HomePageNewsVC : BaseVC
 
 
 @end

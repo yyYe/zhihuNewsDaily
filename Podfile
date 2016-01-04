@@ -5,3 +5,5 @@ pod 'MBProgressHUD', '~> 0.9.1'
 pod 'MJRefresh', '~> 3.0.2'
 pod 'Realm', '~> 0.96.2'
 pod 'YYModel', '~> 0.9.1'
+pod 'LTNavigationBar’,’2.1.0'
+

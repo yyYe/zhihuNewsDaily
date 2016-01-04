@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LTNavigationBar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,10 +49,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>306515DA4E2FE0DEC0E42B89FE8085AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4D0A33DBCDBC558935FCAE60F24C7947</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>77FF6E2C4F4AEDBF82FCBD76252BEA9B</key>
+		<key>7B138286175D810A9671906BC53CF92E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>818A2AB3C9D5FEB5AA98F315B88E6C54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81A311CB0A706632BB274E94C0FC99D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,17 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1D37884C5031602CCFF598359F75D7E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CA0B4DF2615B1C4AF8A20D748B623FDC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CCBA30A1779CAA2B2131AD8880E07C66</key>
+		<key>DF37DACFC0EB005AB263A4A7DB18A4CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

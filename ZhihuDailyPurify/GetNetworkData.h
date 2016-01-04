@@ -15,4 +15,10 @@
 + (void)getDateDataWithBlock:(void(^)(NSDictionary *dict))data;
 
 + (void)getIvLogoDataWithBlock:(void(^)(NSDictionary *dict))data;
+
++ (void)getAppendDataWithBlock:(void(^)(NSDictionary *dict))data;
+
++ (void)getDetailsDataWithBlock:(void(^)(NSDictionary *dict))data;
+
++ (void)getPhotoDataWithBlock:(void(^)(NSDictionary *dict))data;
 @end

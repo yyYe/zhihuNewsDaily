@@ -7,8 +7,6 @@
 //
 
 #import "StoriesCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import <Masonry/Masonry.h>
 
 @implementation StoriesCell
 

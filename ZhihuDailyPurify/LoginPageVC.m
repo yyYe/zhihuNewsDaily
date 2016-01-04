@@ -7,17 +7,17 @@
 //
 
 #import "LoginPageVC.h"
-#import <Masonry/Masonry.h>
 
 #define ButtonStyle [UIButton buttonWithType:UIButtonTypeRoundedRect]
 #define PhotoName(name) ([[UIImageView alloc] initWithImage:[UIImage imageNamed:name]])
+#define buttonTitle(name) setTitle:name forState:UIControlStateNormal
 
 @implementation LoginPageVC
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)showContext {
+    
     self.edgesForExtendedLayout = UIEventSubtypeNone;
-    self.view.backgroundColor = [UIColor colorWithRed:0.11 green:0.51 blue:0.84 alpha:1];
+    self.view.backgroundColor = getColor(0.11, 0.51, 0.84);
     [self navigationsController];
     [self showRegisterPage];
 }
@@ -40,7 +40,7 @@
     
     UILabel *describeLabel = [UILabel new];
     describeLabel.text = @"使用微博登录";
-    describeLabel.textColor = [UIColor colorWithRed:0.64 green:0.88 blue:0.95 alpha:1];
+    describeLabel.textColor = getColor(0.64, 0.88, 0.95);
     [self.view addSubview:describeLabel];
     [describeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -50,7 +50,7 @@
     UIButton *xinlangBtn = ButtonStyle;
     xinlangBtn.layer.cornerRadius = 5.f;
     xinlangBtn.backgroundColor = [UIColor whiteColor];
-    [xinlangBtn setTitle:@"新浪微博" forState:UIControlStateNormal];
+    [xinlangBtn buttonTitle(@"新浪微博")];
     [self.view addSubview:xinlangBtn];
     
     UIImageView *ivXinlang = PhotoName(@"sync_weibo_selected");
@@ -59,7 +59,8 @@
     UIButton *tenxunBtn = ButtonStyle;
     tenxunBtn.layer.cornerRadius = 5.f;
     tenxunBtn.backgroundColor = [UIColor whiteColor];
-    [tenxunBtn setTitle:@"腾讯微博" forState:UIControlStateNormal];
+    [tenxunBtn buttonTitle(@"腾讯微博")];
+    
     [self.view addSubview:tenxunBtn];
     
     UIImageView *ivTenxun = PhotoName(@"tencent-weibo-B");
