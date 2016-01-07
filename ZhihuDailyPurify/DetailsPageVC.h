@@ -11,6 +11,7 @@
 @interface DetailsPageVC : BaseVC <UIWebViewDelegate> {
     UIButton *rightBtn1;
     UIButton *rightBtn3;
+    UIButton *rightBtn5;
     long rightBtn1Number;
     NSInteger rightBtn3Number;
     UIView *view;

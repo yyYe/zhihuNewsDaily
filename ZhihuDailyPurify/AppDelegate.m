@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <WeiboSDK/WeiboSDK.h>
+
 #import "NavigationController.h"
 #import "GetNetworkData.h"
 #import "HomePageNewsVC.h"
@@ -15,7 +17,9 @@
 
 #define screenSize CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
 
-@interface AppDelegate () {
+#define kAppKey @"1346355262"
+
+@interface AppDelegate () <WeiboSDKDelegate> {
 //    UIView *view;
 }
 
@@ -24,6 +28,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:kAppKey];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     HomePageNewsVC *newsVC = [HomePageNewsVC new];
@@ -58,5 +65,14 @@
      
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+
 
 @end

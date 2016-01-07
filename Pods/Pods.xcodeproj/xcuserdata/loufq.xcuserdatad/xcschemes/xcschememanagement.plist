@@ -49,15 +49,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>YYWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>306515DA4E2FE0DEC0E42B89FE8085AD</key>
+		<key>314F0792FB4CA846CA612B0752F1E877</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3D924067458863284856A6EC56E144A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,22 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D0A33DBCDBC558935FCAE60F24C7947</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B138286175D810A9671906BC53CF92E</key>
+		<key>5A7B3B5BB3F72F91009528849E9913F8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>818A2AB3C9D5FEB5AA98F315B88E6C54</key>
+		<key>7A2347B2978B79B26758FFB9C5D7FC9C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -93,11 +88,6 @@
 			<true/>
 		</dict>
 		<key>8F74D9EA91F4C43190670066BAC37D44</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DF37DACFC0EB005AB263A4A7DB18A4CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

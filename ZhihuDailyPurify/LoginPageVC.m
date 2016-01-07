@@ -7,10 +7,13 @@
 //
 
 #import "LoginPageVC.h"
+#import <WeiboSDK/WeiboSDK.h>
 
 #define ButtonStyle [UIButton buttonWithType:UIButtonTypeRoundedRect]
 #define PhotoName(name) ([[UIImageView alloc] initWithImage:[UIImage imageNamed:name]])
 #define buttonTitle(name) setTitle:name forState:UIControlStateNormal
+
+#define kRedirectURL @"http://www.sina.com"
 
 @implementation LoginPageVC
 
@@ -49,6 +52,7 @@
     
     UIButton *xinlangBtn = ButtonStyle;
     xinlangBtn.layer.cornerRadius = 5.f;
+    btnTarget(xinlangBtn, loginWeiboTapped);
     xinlangBtn.backgroundColor = [UIColor whiteColor];
     [xinlangBtn buttonTitle(@"新浪微博")];
     [self.view addSubview:xinlangBtn];
@@ -100,8 +104,22 @@
     
 }
 
+- (void)loginWeiboTapped {
+    WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare]];
+    [WeiboSDK sendRequest:request];
+}
+
+- (WBMessageObject *)messageToShare {
+    WBMessageObject *message = [WBMessageObject message];
+    message.text = @"测试使用";
+    return message;
+}
+
 - (void)returnBeforePage {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+
 
 @end

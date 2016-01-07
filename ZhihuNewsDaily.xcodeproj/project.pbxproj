@@ -28,6 +28,15 @@
 		199F28C21C3D541100AFDFB9 /* SetUpPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28C11C3D541100AFDFB9 /* SetUpPageVC.m */; };
 		199F28CE1C3E06F000AFDFB9 /* CommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28CD1C3E06F000AFDFB9 /* CommentVC.m */; };
 		199F28D11C3E329800AFDFB9 /* LocalPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28D01C3E329800AFDFB9 /* LocalPhotoCell.m */; };
+		199F28D31C3E912100AFDFB9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199F28D21C3E912100AFDFB9 /* QuartzCore.framework */; };
+		199F28D51C3E912D00AFDFB9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199F28D41C3E912D00AFDFB9 /* ImageIO.framework */; };
+		199F28D71C3E913800AFDFB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199F28D61C3E913800AFDFB9 /* SystemConfiguration.framework */; };
+		199F28D91C3E914500AFDFB9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199F28D81C3E914500AFDFB9 /* Security.framework */; };
+		199F28DB1C3E915000AFDFB9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199F28DA1C3E915000AFDFB9 /* CoreTelephony.framework */; };
+		199F28DD1C3E916200AFDFB9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199F28DC1C3E916200AFDFB9 /* CoreText.framework */; };
+		199F28DF1C3E917000AFDFB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199F28DE1C3E917000AFDFB9 /* UIKit.framework */; };
+		199F28E11C3E917D00AFDFB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199F28E01C3E917D00AFDFB9 /* Foundation.framework */; };
+		199F28E31C3E918600AFDFB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199F28E21C3E918600AFDFB9 /* CoreGraphics.framework */; };
 		19B9561E1C34F4D00035C50B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B9561D1C34F4D00035C50B /* main.m */; };
 		19B956211C34F4D00035C50B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B956201C34F4D00035C50B /* AppDelegate.m */; };
 		19B956241C34F4D00035C50B /* HomePageNewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B956231C34F4D00035C50B /* HomePageNewsVC.m */; };
@@ -82,6 +91,15 @@
 		199F28CD1C3E06F000AFDFB9 /* CommentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentVC.m; sourceTree = "<group>"; };
 		199F28CF1C3E329800AFDFB9 /* LocalPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPhotoCell.h; sourceTree = "<group>"; };
 		199F28D01C3E329800AFDFB9 /* LocalPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPhotoCell.m; sourceTree = "<group>"; };
+		199F28D21C3E912100AFDFB9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		199F28D41C3E912D00AFDFB9 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		199F28D61C3E913800AFDFB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		199F28D81C3E914500AFDFB9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		199F28DA1C3E915000AFDFB9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		199F28DC1C3E916200AFDFB9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		199F28DE1C3E917000AFDFB9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		199F28E01C3E917D00AFDFB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		199F28E21C3E918600AFDFB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		19B956191C34F4D00035C50B /* ZhihuNewsDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuNewsDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B9561D1C34F4D00035C50B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19B9561F1C34F4D00035C50B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +130,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				199F28E31C3E918600AFDFB9 /* CoreGraphics.framework in Frameworks */,
+				199F28E11C3E917D00AFDFB9 /* Foundation.framework in Frameworks */,
+				199F28DF1C3E917000AFDFB9 /* UIKit.framework in Frameworks */,
+				199F28DD1C3E916200AFDFB9 /* CoreText.framework in Frameworks */,
+				199F28DB1C3E915000AFDFB9 /* CoreTelephony.framework in Frameworks */,
+				199F28D91C3E914500AFDFB9 /* Security.framework in Frameworks */,
+				199F28D71C3E913800AFDFB9 /* SystemConfiguration.framework in Frameworks */,
+				199F28D51C3E912D00AFDFB9 /* ImageIO.framework in Frameworks */,
+				199F28D31C3E912100AFDFB9 /* QuartzCore.framework in Frameworks */,
 				02E01B92F02218BF0F03CB50 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +331,15 @@
 		F42B869050FD225BB5DA2722 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				199F28E21C3E918600AFDFB9 /* CoreGraphics.framework */,
+				199F28E01C3E917D00AFDFB9 /* Foundation.framework */,
+				199F28DE1C3E917000AFDFB9 /* UIKit.framework */,
+				199F28DC1C3E916200AFDFB9 /* CoreText.framework */,
+				199F28DA1C3E915000AFDFB9 /* CoreTelephony.framework */,
+				199F28D81C3E914500AFDFB9 /* Security.framework */,
+				199F28D61C3E913800AFDFB9 /* SystemConfiguration.framework */,
+				199F28D41C3E912D00AFDFB9 /* ImageIO.framework */,
+				199F28D21C3E912100AFDFB9 /* QuartzCore.framework */,
 				1ACAF1271BCC34B6699C6601 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -568,6 +604,7 @@
 			baseConfigurationReference = DE7EA828D4FBE40573B8892C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = ZhihuDailyPurify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.loufq.ZhihuNewsDaily;
@@ -580,6 +617,7 @@
 			baseConfigurationReference = 86990FCF983A51B2B9B77589 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = ZhihuDailyPurify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.loufq.ZhihuNewsDaily;

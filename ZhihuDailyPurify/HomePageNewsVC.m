@@ -40,6 +40,7 @@
     NSDictionary *photoDict;
     UIView *view;
     NSDictionary *webDict;
+    NSArray *listArray;
     
     SelectBtnVC *selectVC;
 }
@@ -133,7 +134,7 @@
     //先取出总共有多少个数组
     [GetNetworkData getNewDataWithBlock:^(NSDictionary *dict) {
         NSArray *list = [dict valueForKey:@"top_stories"];
-        
+        listArray = list;
         list = [NSArray yy_modelArrayWithClass:[ShowNews class] json:list];
         
         number = list.count;
@@ -162,6 +163,8 @@
             ShowNews *appendNews = list[i];
             
             UIButton *btn = [UIButton new];
+            btn.tag = i;
+            btnTarget(btn, btnTapped:);
             [btn sd_setImageWithURL:[NSURL URLWithString:appendNews.avatar] forState:UIControlStateNormal];
             [ScrollView addSubview:btn];
             
@@ -310,17 +313,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSDictionary *dict = [newsArray objectAtIndex:indexPath.row];
-    NSNumber *idNumber = [dict valueForKey:@"id"];
-    NSString *idString = [idNumber stringValue];
-    NSString *webString = [webDict valueForKey:@"share_url"];
-    //取出点击的cell的id，把它替换到取到的数据接口最后面， 就是需要显示的完整链接
-    NSString *WEBString =[webString stringByReplacingOccurrencesOfString:@"3892357" withString:idString];
-    DetailsPageVC *detailsVC = [DetailsPageVC new];
-    detailsVC.idString = idString;
-    detailsVC.request = [NSURLRequest requestWithURL:[NSURL URLWithString:WEBString]];
-    [self.navigationController pushViewController:detailsVC animated:YES];
+    [self jumpDetailsBtnTapped:newsArray dictData:indexPath.row];
 }
 
 - (void)showLeftButtonContext {
@@ -343,13 +336,28 @@
 //    [removeView removeFromSuperview];
 }
 
-- (void)jumpDetailsBtnTapped {
-    
+
+- (void)btnTapped:(UIButton *)sender {
+    [self jumpDetailsBtnTapped:listArray dictData:sender.tag];
+}
+
+- (void)jumpDetailsBtnTapped:(NSArray *)list dictData:(NSInteger)data {
+    NSDictionary *dict = [list objectAtIndex:data];
+    NSNumber *idNumber = [dict valueForKey:@"id"];
+    NSString *idString = [idNumber stringValue];
+    NSString *webString = [webDict valueForKey:@"share_url"];
+    //取出点击的cell的id，把它替换到取到的数据接口最后面， 就是需要显示的完整链接
+    NSString *WEBString =[webString stringByReplacingOccurrencesOfString:@"3892357" withString:idString];
+    DetailsPageVC *detailsVC = [DetailsPageVC new];
+    detailsVC.idString = idString;
+    detailsVC.request = [NSURLRequest requestWithURL:[NSURL URLWithString:WEBString]];
+    [self.navigationController pushViewController:detailsVC animated:YES];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

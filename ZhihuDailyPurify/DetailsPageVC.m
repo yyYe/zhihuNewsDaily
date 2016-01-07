@@ -86,9 +86,10 @@ static NSString * const kStoryExtraURL = @"http://news-at.zhihu.com/api/4/story-
     btnTarget(rightBtn4, rightBtn4Tapped);
     barBtnItem(rightBar4, rightBtn4);
     
-    buttonStyle(rightBtn5);
+    rightBtn5 = btnStyle;
     btnFrame(rightBtn5);
-    btnImage(rightBtn5,@"goodsReviewStarEnabled");
+    btnTarget(rightBtn5, rightBtn5Tapped);
+    btnImage(rightBtn5,@"yellowStar40Disabled");
     barBtnItem(rightBar5, rightBtn5);
     
     buttonStyle(rightBtn6);
@@ -123,6 +124,10 @@ static NSString * const kStoryExtraURL = @"http://news-at.zhihu.com/api/4/story-
     commentVC.shortComments = shortCommentString;
     commentVC.idString = _idString;
     [self.navigationController pushViewController:commentVC animated:YES];
+}
+
+- (void)rightBtn5Tapped {
+    btnImage(rightBtn5,@"yellowStar40Enabled");
 }
 
 - (void)rightBtn6Tapped {
