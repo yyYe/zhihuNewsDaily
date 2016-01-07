@@ -26,7 +26,7 @@
     
     [self.navigationController.navigationBar setTranslucent:YES];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backStretchBackgroundNormal"] style:UIBarButtonItemStylePlain target:self action:@selector(returnBeforePage)];
-    [self.navigationController.navigationBar setTintColor:[UIColor redColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
 }
 

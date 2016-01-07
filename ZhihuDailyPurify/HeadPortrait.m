@@ -12,7 +12,7 @@
 
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{
-             @"url":@"img",
+             @"avatar":@"img",
              @"text":@"text",
              };
 }

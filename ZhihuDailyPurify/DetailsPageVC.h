@@ -8,9 +8,17 @@
 
 #import "BaseVC.h"
 
-@interface DetailsPageVC : BaseVC
+@interface DetailsPageVC : BaseVC <UIWebViewDelegate> {
+    UIButton *rightBtn1;
+    UIButton *rightBtn3;
+    long rightBtn1Number;
+    NSInteger rightBtn3Number;
+    UIView *view;
+    NSDictionary *dict;
+}
 
 @property (strong) UIWebView *webView;
 @property (strong) NSURLRequest *request;
+@property (strong) NSString *idString;
 
 @end

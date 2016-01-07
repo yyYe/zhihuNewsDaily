@@ -7,9 +7,13 @@
 //
 
 #import "BaseVC.h"
+#import "HeadPortrait.h"
 
 @interface SettingPageVC : BaseVC {
-    
+    UIView *view;
+    NSDictionary *detailsDict;
+    NSArray *array;
+    HeadPortrait *headPortrait;
 }
 
 @end

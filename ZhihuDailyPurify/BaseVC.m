@@ -17,9 +17,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIEventSubtypeNone;
     //修改状态栏颜色,状态栏时导航栏的一部分
-//    UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, 320, 20)];
-//    statusBarView.backgroundColor=[UIColor blackColor];
-//    [self.navigationController.navigationBar addSubview:statusBarView];
+    UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, 320, 20)];
+    statusBarView.backgroundColor=[UIColor blackColor];
+    [self.navigationController.navigationBar addSubview:statusBarView];
     
     self.tableView = [UITableView new];
     self.tableView.dataSource = self;

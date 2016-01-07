@@ -5,6 +5,7 @@
 //  Created by loufq on 15/12/31.
 //  Copyright © 2015年 yeyy. All rights reserved.
 //
+#import <SDWebImage/UIButton+WebCache.h>
 
 #import "HomePageNewsVC.h"
 #import "StoriesCell.h"
@@ -15,6 +16,7 @@
 
 #import "ShowNews.h"
 #import "DetailsModel.h"
+#import "AppDelegate.h"
 
 #define btnHeight 44
 #define btnStyle [UIButton buttonWithType:UIButtonTypeRoundedRect]
@@ -38,6 +40,8 @@
     NSDictionary *photoDict;
     UIView *view;
     NSDictionary *webDict;
+    
+    SelectBtnVC *selectVC;
 }
 
 
@@ -49,7 +53,6 @@
 - (void)showContext {
     
     self.view.backgroundColor = getColor(0.93, 0.98, 0.94);
-    self.tableView.userInteractionEnabled = YES;
     
     [self navigationsController];
     [self TableView];
@@ -64,6 +67,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    selectVC = [SelectBtnVC new];
+    selectVC.view.hidden = YES;
 }
 
 - (void)TableView {
@@ -76,7 +81,7 @@
 //    self.tableView.frame = CGRectMake(0, 0, screenWidth-20*2, screenHeight);
     [self showHeaderView];
     
-    [self.tableView registerClass:[StoriesCell class] forCellReuseIdentifier:@"HomePageCell"];
+    [self.tableView registerClass:[StoriesCell class] forCellReuseIdentifier:@"StoriesCell"];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self showData];
@@ -97,7 +102,6 @@
     data2Fetched = NO;
     [GetNetworkData getNewDataWithBlock:^(NSDictionary *dict) {
         newsArray = [dict valueForKey:@"stories"];
-        NSLog(@"newsArray---%d",newsArray.count);
         data2Fetched = YES;
         if (data1Fetched) {
             self.dataArray = @[newsArray,dateArray];
@@ -124,7 +128,7 @@
 - (void)showHeaderView {
     
     UIView *headerView = [UIView new];
-    headerView.frame = CGRectMake(0, 0, 0, 215);
+    headerView.frame = CGRectMake(0, 0, 0, headerTableView);
     [self.view addSubview:headerView];
     //先取出总共有多少个数组
     [GetNetworkData getNewDataWithBlock:^(NSDictionary *dict) {
@@ -157,23 +161,24 @@
             
             ShowNews *appendNews = list[i];
             
-            UIImageView *ivPhoto = [UIImageView new];
-            [ivPhoto sd_setImageWithURL:appendNews.url];
-            [ScrollView addSubview:ivPhoto];
+            UIButton *btn = [UIButton new];
+            [btn sd_setImageWithURL:[NSURL URLWithString:appendNews.avatar] forState:UIControlStateNormal];
+            [ScrollView addSubview:btn];
             
             UILabel *titleLabel = [UILabel new];
+            [titleLabel setTextColor:[UIColor whiteColor]];
             titleLabel.text = appendNews.title;
             titleLabel.numberOfLines = 0;
             [ScrollView addSubview:titleLabel];
             
-            [ivPhoto mas_makeConstraints:^(MASConstraintMaker *make) {
+            [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(ScrollView).offset(screenWidth * i);
                 make.top.right.bottom.equalTo(headerView);
             }];
             
             [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(ScrollView).offset(20 + screenWidth * i);
-                make.width.equalTo(@(screenWidth-20*2));
+                make.left.equalTo(ScrollView).offset(15 + screenWidth * i);
+                make.width.equalTo(@(screenWidth-15*2));
                 make.bottom.equalTo(headerView).offset(-30);
             }];
         }
@@ -219,31 +224,39 @@
 //导航栏左边第二个，根据滚动改变名字，给一个事件，传值，再把header的隐藏，
 - (void)navigationsController {
     //导航栏标题，根据section的内容而改变
-    self.navigationItem.title = @"首页";
+//    self.navigationItem.title = @"首页";
     
-    [self.navigationController.navigationBar setTranslucent:YES];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed: @"buyListRecipeButtonNormal"] style: UIBarButtonItemStylePlain target: self action:@selector(showLeftButtonContext)];
+    //自定义左边导航栏按钮
+    buttonStyle(leftBtn1);
+    leftBtn1.frame = CGRectMake(0, 0, 22, 22);
+    btnImage(leftBtn1, @"buyListRecipeButtonNormal");
+    btnTarget(leftBtn1, showLeftButtonContext);
+    barBtnItem(leftBtn1Bar, leftBtn1);
     
-    //自定义左右导航项一
-    UIButton *rightBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    buttonStyle(leftBtn2);
+    leftBtn2.frame = CGRectMake(0, 0, 44, 22);
+    btnTitle(leftBtn2, @"首页");
+    btnTarget(leftBtn2, showLeftButtonContext);
+    barBtnItem(leftBtn2Bar, leftBtn2);
+    
+    NSArray *leftBtn = [NSArray arrayWithObjects:leftBtn1Bar,leftBtn2Bar, nil];
+    self.navigationItem.leftBarButtonItems = leftBtn;
+    
+    //自定义右边导航栏按钮
+    buttonStyle(rightBtn1);
     rightBtn1.frame = CGRectMake(0, 0, 22, 22);
-    [rightBtn1 setBackgroundImage:[UIImage imageNamed:@"convenient_share_other"] forState:UIControlStateNormal];
-    [rightBtn1 addTarget:self action:@selector(btnSelectAppend) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBtn1Bar = [[UIBarButtonItem alloc]initWithCustomView:rightBtn1];
+    btnImage(rightBtn1, @"convenient_share_other");
+    btnTarget(rightBtn1, btnSelectAppend);
+    barBtnItem(rightBtn1Bar, rightBtn1);
     
-    UIButton *rightBtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    buttonStyle(rightBtn2);
     rightBtn2.frame = CGRectMake(0, 0, 22, 22);
-    [rightBtn2 setBackgroundImage:[UIImage imageNamed:@"notification"] forState:UIControlStateNormal];
-    [rightBtn2 addTarget:self action:@selector(jumpLoginPage) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBtn2Bar = [[UIBarButtonItem alloc]initWithCustomView:rightBtn2];
+    btnImage(rightBtn2, @"notification");
+    btnTarget(rightBtn2, jumpLoginPage);
+    barBtnItem(rightBtn2Bar, rightBtn2);
     
     NSArray *rightBtn = [NSArray arrayWithObjects:rightBtn1Bar,rightBtn2Bar, nil];
     self.navigationItem.rightBarButtonItems = rightBtn;
-    
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    
-    //设置显示的颜色
-    self.navigationController.navigationBar.barTintColor = BackgroundColor;
     
 }
 
@@ -256,12 +269,28 @@
 }
 
 //根据这里传值给导航栏，
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 300.0, 30.0)];
+    
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    headerLabel.backgroundColor = [UIColor whiteColor];
+    headerLabel.textColor = [UIColor grayColor];
+    headerLabel.font = sizeFont(13);
+    headerLabel.frame = CGRectMake(20.0, 0.0, 300.0, 30.0);
+    
     if (section == 0) {
-        return @"今日热闻";
+        headerLabel.text = @"今日热闻";
+    }else if (section == 1){
+        headerLabel.text = @"其他";
+    }else if (section == 2){
+        headerLabel.text = @"反馈";
     }
-    return @"2015年12月30";
+    
+    [customView addSubview:headerLabel];
+    
+    return customView;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *array = [self.dataArray objectAtIndex:section];
@@ -269,14 +298,13 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 90.f;
+    return 90.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *array = [self.dataArray objectAtIndex:indexPath.section];
     id obj = [array objectAtIndex:indexPath.row];
-    StoriesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCell"];
-    
+    StoriesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoriesCell"];
     cell.dictData = obj;
     return cell;
 }
@@ -286,18 +314,17 @@
     NSDictionary *dict = [newsArray objectAtIndex:indexPath.row];
     NSNumber *idNumber = [dict valueForKey:@"id"];
     NSString *idString = [idNumber stringValue];
-//    long num = [idString longValue];
     NSString *webString = [webDict valueForKey:@"share_url"];
     //取出点击的cell的id，把它替换到取到的数据接口最后面， 就是需要显示的完整链接
     NSString *WEBString =[webString stringByReplacingOccurrencesOfString:@"3892357" withString:idString];
     DetailsPageVC *detailsVC = [DetailsPageVC new];
+    detailsVC.idString = idString;
     detailsVC.request = [NSURLRequest requestWithURL:[NSURL URLWithString:WEBString]];
     [self.navigationController pushViewController:detailsVC animated:YES];
 }
 
 - (void)showLeftButtonContext {
     SettingPageVC *pageVC = [SettingPageVC new];
-    
     [self.navigationController addChildViewController:pageVC];
     [self.navigationController.view addSubview:pageVC.view];
     
@@ -309,14 +336,18 @@
 }
 
 - (void)btnSelectAppend {
-    SelectBtnVC *selectVC = [SelectBtnVC new];
+    selectVC = [SelectBtnVC new];
     [self.navigationController addChildViewController:selectVC];
     [self.navigationController.view addSubview:selectVC.view];
+//    UIView *removeView = [[[[self.view superview] superview] superview] subviews][3];
+//    [removeView removeFromSuperview];
+}
+
+- (void)jumpDetailsBtnTapped {
     
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    view.hidden = YES;
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
 }
 

@@ -8,13 +8,15 @@
 
 #import "AppDelegate.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "NavigationController.h"
 #import "GetNetworkData.h"
 #import "HomePageNewsVC.h"
+#import "CommentVC.h"
 
 #define screenSize CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
 
 @interface AppDelegate () {
-    UIView *view;
+//    UIView *view;
 }
 
 @end
@@ -25,7 +27,14 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     HomePageNewsVC *newsVC = [HomePageNewsVC new];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:newsVC];
+    NavigationController *nav = [[NavigationController alloc] initWithRootViewController:newsVC];
+    
+    nav.navigationBar.translucent = NO;
+    [nav.navigationBar setTintColor:[UIColor whiteColor]];
+    //设置显示的颜色
+    nav.navigationBar.barTintColor = BackgroundColor;
+    nav.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
@@ -48,26 +57,6 @@
     */
      
     return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-
 }
 
 @end

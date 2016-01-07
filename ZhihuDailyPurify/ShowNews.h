@@ -10,7 +10,7 @@
 
 @interface ShowNews : NSObject
 
-@property (strong) NSURL *url;
+@property (strong) NSString *avatar;
 @property (strong) NSString *title;
 @property (strong) NSNumber *num;
 

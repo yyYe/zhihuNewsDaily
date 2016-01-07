@@ -18,7 +18,7 @@
     [self addSubview:self.ivPhoto];
     
     self.titleLabel = [UILabel new];
-    self.titleLabel.font = [UIFont fontWithName:@"Arial" size:13.f];
+    self.titleLabel.font = sizeFont(13);
     self.titleLabel.numberOfLines = 1;
     [self addSubview:self.titleLabel];
     
@@ -37,8 +37,8 @@
 }
 
 - (void)setDictData:(NSDictionary *)dicData {
-//    [self.ivPhoto sd_setImageWithURL:[dicData valueForKey:@"url"]];
-    self.ivPhoto.image = [UIImage imageNamed:[dicData valueForKey:@"url"]];
+    [self.ivPhoto sd_setImageWithURL:[NSURL URLWithString:[dicData valueForKey:@"avatar"]]];
+//    self.ivPhoto.image = [UIImage imageNamed:[dicData valueForKey:@"url"]];
     self.titleLabel.text = [dicData valueForKey:@"text"];
 }
 

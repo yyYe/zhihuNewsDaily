@@ -19,6 +19,15 @@
 		19448CE81C38F72E00DB982F /* DetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19448CE71C38F72E00DB982F /* DetailsModel.m */; };
 		197DF4BF1C3A46A50098466E /* AppendNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 197DF4BE1C3A46A50098466E /* AppendNews.m */; };
 		197DF4C21C3A46D60098466E /* ShowNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 197DF4C11C3A46D60098466E /* ShowNews.m */; };
+		199F28A01C3BC4A800AFDFB9 /* PersonalHomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F289F1C3BC4A800AFDFB9 /* PersonalHomePageVC.m */; };
+		199F28A61C3BC52400AFDFB9 /* SetUpPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28A51C3BC52400AFDFB9 /* SetUpPageCell.m */; };
+		199F28AD1C3BC6C600AFDFB9 /* PersonalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28AC1C3BC6C600AFDFB9 /* PersonalLayout.m */; };
+		199F28B01C3BE5AB00AFDFB9 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28AF1C3BE5AB00AFDFB9 /* NavigationController.m */; };
+		199F28B61C3BFFB700AFDFB9 /* AppendEnterPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28B51C3BFFB700AFDFB9 /* AppendEnterPageVC.m */; };
+		199F28BC1C3CC1CE00AFDFB9 /* EditorsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28BB1C3CC1CE00AFDFB9 /* EditorsModel.m */; };
+		199F28C21C3D541100AFDFB9 /* SetUpPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28C11C3D541100AFDFB9 /* SetUpPageVC.m */; };
+		199F28CE1C3E06F000AFDFB9 /* CommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28CD1C3E06F000AFDFB9 /* CommentVC.m */; };
+		199F28D11C3E329800AFDFB9 /* LocalPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F28D01C3E329800AFDFB9 /* LocalPhotoCell.m */; };
 		19B9561E1C34F4D00035C50B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B9561D1C34F4D00035C50B /* main.m */; };
 		19B956211C34F4D00035C50B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B956201C34F4D00035C50B /* AppDelegate.m */; };
 		19B956241C34F4D00035C50B /* HomePageNewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B956231C34F4D00035C50B /* HomePageNewsVC.m */; };
@@ -55,6 +64,24 @@
 		197DF4BE1C3A46A50098466E /* AppendNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendNews.m; sourceTree = "<group>"; };
 		197DF4C01C3A46D60098466E /* ShowNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowNews.h; sourceTree = "<group>"; };
 		197DF4C11C3A46D60098466E /* ShowNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowNews.m; sourceTree = "<group>"; };
+		199F289E1C3BC4A800AFDFB9 /* PersonalHomePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageVC.h; sourceTree = "<group>"; };
+		199F289F1C3BC4A800AFDFB9 /* PersonalHomePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageVC.m; sourceTree = "<group>"; };
+		199F28A41C3BC52400AFDFB9 /* SetUpPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpPageCell.h; sourceTree = "<group>"; };
+		199F28A51C3BC52400AFDFB9 /* SetUpPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpPageCell.m; sourceTree = "<group>"; };
+		199F28AB1C3BC6C600AFDFB9 /* PersonalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalLayout.h; sourceTree = "<group>"; };
+		199F28AC1C3BC6C600AFDFB9 /* PersonalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalLayout.m; sourceTree = "<group>"; };
+		199F28AE1C3BE5AB00AFDFB9 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		199F28AF1C3BE5AB00AFDFB9 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		199F28B41C3BFFB700AFDFB9 /* AppendEnterPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendEnterPageVC.h; sourceTree = "<group>"; };
+		199F28B51C3BFFB700AFDFB9 /* AppendEnterPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendEnterPageVC.m; sourceTree = "<group>"; };
+		199F28BA1C3CC1CE00AFDFB9 /* EditorsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorsModel.h; sourceTree = "<group>"; };
+		199F28BB1C3CC1CE00AFDFB9 /* EditorsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorsModel.m; sourceTree = "<group>"; };
+		199F28C01C3D541100AFDFB9 /* SetUpPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpPageVC.h; sourceTree = "<group>"; };
+		199F28C11C3D541100AFDFB9 /* SetUpPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpPageVC.m; sourceTree = "<group>"; };
+		199F28CC1C3E06F000AFDFB9 /* CommentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentVC.h; sourceTree = "<group>"; };
+		199F28CD1C3E06F000AFDFB9 /* CommentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentVC.m; sourceTree = "<group>"; };
+		199F28CF1C3E329800AFDFB9 /* LocalPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPhotoCell.h; sourceTree = "<group>"; };
+		199F28D01C3E329800AFDFB9 /* LocalPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPhotoCell.m; sourceTree = "<group>"; };
 		19B956191C34F4D00035C50B /* ZhihuNewsDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuNewsDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B9561D1C34F4D00035C50B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19B9561F1C34F4D00035C50B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,10 +137,69 @@
 			children = (
 				191EB16B1C392166001011C9 /* HeaderPhotoCell.h */,
 				191EB16C1C392166001011C9 /* HeaderPhotoCell.m */,
+				199F28CF1C3E329800AFDFB9 /* LocalPhotoCell.h */,
+				199F28D01C3E329800AFDFB9 /* LocalPhotoCell.m */,
 				191EB1AC1C395A31001011C9 /* AppendNewsCell.h */,
 				191EB1AD1C395A31001011C9 /* AppendNewsCell.m */,
 			);
 			name = AppendNews;
+			sourceTree = "<group>";
+		};
+		199F289D1C3BC3E700AFDFB9 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				191CC7261C36AC99001936C6 /* LoginPageVC.h */,
+				191CC7271C36AC99001936C6 /* LoginPageVC.m */,
+				199F289E1C3BC4A800AFDFB9 /* PersonalHomePageVC.h */,
+				199F289F1C3BC4A800AFDFB9 /* PersonalHomePageVC.m */,
+				199F28AB1C3BC6C600AFDFB9 /* PersonalLayout.h */,
+				199F28AC1C3BC6C600AFDFB9 /* PersonalLayout.m */,
+			);
+			name = LoginPage;
+			sourceTree = "<group>";
+		};
+		199F28A71C3BC54900AFDFB9 /* SetUpPage */ = {
+			isa = PBXGroup;
+			children = (
+				199F28A41C3BC52400AFDFB9 /* SetUpPageCell.h */,
+				199F28A51C3BC52400AFDFB9 /* SetUpPageCell.m */,
+			);
+			name = SetUpPage;
+			sourceTree = "<group>";
+		};
+		19B571DC1C3BA5E000366F24 /* SetUpPage */ = {
+			isa = PBXGroup;
+			children = (
+				191EB1B51C3960B6001011C9 /* SelectBtnVC.h */,
+				191EB1B61C3960B6001011C9 /* SelectBtnVC.m */,
+				199F28C01C3D541100AFDFB9 /* SetUpPageVC.h */,
+				199F28C11C3D541100AFDFB9 /* SetUpPageVC.m */,
+			);
+			name = SetUpPage;
+			sourceTree = "<group>";
+		};
+		19B571DD1C3BA5F400366F24 /* AppendPage */ = {
+			isa = PBXGroup;
+			children = (
+				191CC7291C36ACCC001936C6 /* SettingPageVC.h */,
+				191CC72A1C36ACCC001936C6 /* SettingPageVC.m */,
+				199F28B41C3BFFB700AFDFB9 /* AppendEnterPageVC.h */,
+				199F28B51C3BFFB700AFDFB9 /* AppendEnterPageVC.m */,
+			);
+			name = AppendPage;
+			sourceTree = "<group>";
+		};
+		19B571DE1C3BA60B00366F24 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				19B956221C34F4D00035C50B /* HomePageNewsVC.h */,
+				19B956231C34F4D00035C50B /* HomePageNewsVC.m */,
+				19448CE31C38F49600DB982F /* DetailsPageVC.h */,
+				19448CE41C38F49600DB982F /* DetailsPageVC.m */,
+				199F28CC1C3E06F000AFDFB9 /* CommentVC.h */,
+				199F28CD1C3E06F000AFDFB9 /* CommentVC.m */,
+			);
+			name = HomePage;
 			sourceTree = "<group>";
 		};
 		19B956101C34F4D00035C50B = {
@@ -144,6 +230,8 @@
 				19B956331C34F5270035C50B /* View */,
 				19B9561F1C34F4D00035C50B /* AppDelegate.h */,
 				19B956201C34F4D00035C50B /* AppDelegate.m */,
+				199F28AE1C3BE5AB00AFDFB9 /* NavigationController.h */,
+				199F28AF1C3BE5AB00AFDFB9 /* NavigationController.m */,
 				19B956251C34F4D00035C50B /* Main.storyboard */,
 				19B956281C34F4D00035C50B /* Assets.xcassets */,
 				19B9562A1C34F4D00035C50B /* LaunchScreen.storyboard */,
@@ -169,6 +257,7 @@
 				19B9563D1C3501880035C50B /* BaseCell.m */,
 				191EB1661C391AE6001011C9 /* HomePage */,
 				191EB1671C391AF5001011C9 /* AppendNews */,
+				199F28A71C3BC54900AFDFB9 /* SetUpPage */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -184,6 +273,8 @@
 				191EB1691C391EC6001011C9 /* HeadPortrait.m */,
 				197DF4BD1C3A46A50098466E /* AppendNews.h */,
 				197DF4BE1C3A46A50098466E /* AppendNews.m */,
+				199F28BA1C3CC1CE00AFDFB9 /* EditorsModel.h */,
+				199F28BB1C3CC1CE00AFDFB9 /* EditorsModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -193,16 +284,10 @@
 			children = (
 				19448CDD1C38F2B400DB982F /* BaseVC.h */,
 				19448CDE1C38F2B400DB982F /* BaseVC.m */,
-				19B956221C34F4D00035C50B /* HomePageNewsVC.h */,
-				19B956231C34F4D00035C50B /* HomePageNewsVC.m */,
-				19448CE31C38F49600DB982F /* DetailsPageVC.h */,
-				19448CE41C38F49600DB982F /* DetailsPageVC.m */,
-				191CC7261C36AC99001936C6 /* LoginPageVC.h */,
-				191CC7271C36AC99001936C6 /* LoginPageVC.m */,
-				191CC7291C36ACCC001936C6 /* SettingPageVC.h */,
-				191CC72A1C36ACCC001936C6 /* SettingPageVC.m */,
-				191EB1B51C3960B6001011C9 /* SelectBtnVC.h */,
-				191EB1B61C3960B6001011C9 /* SelectBtnVC.m */,
+				19B571DE1C3BA60B00366F24 /* HomePage */,
+				199F289D1C3BC3E700AFDFB9 /* LoginPage */,
+				19B571DD1C3BA5F400366F24 /* AppendPage */,
+				19B571DC1C3BA5E000366F24 /* SetUpPage */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -345,16 +430,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				199F28A61C3BC52400AFDFB9 /* SetUpPageCell.m in Sources */,
 				19B956241C34F4D00035C50B /* HomePageNewsVC.m in Sources */,
 				19B956441C350AAD0035C50B /* StoriesCell.m in Sources */,
 				19B9564A1C3529870035C50B /* DateStoriesCell.m in Sources */,
+				199F28BC1C3CC1CE00AFDFB9 /* EditorsModel.m in Sources */,
 				19448CDF1C38F2B400DB982F /* BaseVC.m in Sources */,
 				197DF4BF1C3A46A50098466E /* AppendNews.m in Sources */,
 				191EB16A1C391EC6001011C9 /* HeadPortrait.m in Sources */,
+				199F28D11C3E329800AFDFB9 /* LocalPhotoCell.m in Sources */,
+				199F28AD1C3BC6C600AFDFB9 /* PersonalLayout.m in Sources */,
 				197DF4C21C3A46D60098466E /* ShowNews.m in Sources */,
 				19448CE51C38F49600DB982F /* DetailsPageVC.m in Sources */,
+				199F28C21C3D541100AFDFB9 /* SetUpPageVC.m in Sources */,
+				199F28B61C3BFFB700AFDFB9 /* AppendEnterPageVC.m in Sources */,
 				191CC72B1C36ACCC001936C6 /* SettingPageVC.m in Sources */,
 				19448CE81C38F72E00DB982F /* DetailsModel.m in Sources */,
+				199F28CE1C3E06F000AFDFB9 /* CommentVC.m in Sources */,
 				19B9563E1C3501880035C50B /* BaseCell.m in Sources */,
 				191EB1AE1C395A31001011C9 /* AppendNewsCell.m in Sources */,
 				191EB1B71C3960B6001011C9 /* SelectBtnVC.m in Sources */,
@@ -363,6 +455,8 @@
 				19B956211C34F4D00035C50B /* AppDelegate.m in Sources */,
 				19B9561E1C34F4D00035C50B /* main.m in Sources */,
 				19B956471C35239B0035C50B /* TopStoriesCell.m in Sources */,
+				199F28B01C3BE5AB00AFDFB9 /* NavigationController.m in Sources */,
+				199F28A01C3BC4A800AFDFB9 /* PersonalHomePageVC.m in Sources */,
 				191EB16D1C392166001011C9 /* HeaderPhotoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

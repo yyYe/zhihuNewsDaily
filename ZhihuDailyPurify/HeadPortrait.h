@@ -10,7 +10,7 @@
 
 @interface HeadPortrait : NSObject
 
-@property (strong) NSURL *url;
+@property (strong) NSString *avatar;
 @property (strong) NSString *text;
 
 @end

@@ -8,13 +8,11 @@
 
 #import "SelectBtnVC.h"
 #import <Masonry/Masonry.h>
-
+#import "SetUpPageVC.h"
+#import "PersonalHomePageVC.h"
 
 #define btnHeight 44
-#define btnStyle [UIButton buttonWithType:UIButtonTypeRoundedRect]
-#define btnHorizontal(btn) btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-#define btnWidth(btn) btn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
-#define btnTitleColor(btn) [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal]
+
 
 @implementation SelectBtnVC
 
@@ -24,27 +22,29 @@
     
     view = [UIView new];
     view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController.view addSubview:view];
+    [self.view addSubview:view];
     
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.navigationController.view).offset(-5);
-        make.top.equalTo(self.navigationController.view).offset(5);
+        make.right.equalTo(self.view).offset(-5);
+        make.top.equalTo(self.view).offset(25);
         make.height.equalTo(@(btnHeight *2));
         make.width.equalTo(@180);
     }];
     
-    UIButton *returnBtn = btnStyle;
+    returnBtn = btnStyle;
     btnTitleColor(returnBtn);
     btnHorizontal(returnBtn);
     btnWidth(returnBtn);
-    [returnBtn setTitle:@"夜间模式" forState:UIControlStateNormal];
+    btnTitle(returnBtn,@"夜间模式");
+    btnTarget(returnBtn, updateBackgroundColor);
     [view addSubview:returnBtn];
     
     UIButton *setUpBtn = btnStyle;
     btnTitleColor(setUpBtn);
     btnHorizontal(setUpBtn);
     btnWidth(setUpBtn);
-    [setUpBtn setTitle:@"设置选项" forState:UIControlStateNormal];
+    btnTitle(setUpBtn, @"设置选项");
+    btnTarget(setUpBtn, jumpSetUpPageTapped);
     [view addSubview:setUpBtn];
     
     [returnBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -58,11 +58,34 @@
         make.height.equalTo(returnBtn);
         make.top.equalTo(returnBtn.mas_bottom);
     }];
+    
+}
+
+- (void)jumpSetUpPageTapped {
+    view.hidden = YES;
+    SetUpPageVC *setUpVC = [SetUpPageVC new];
+    [self.navigationController pushViewController:setUpVC animated:YES];
+}
+
+- (void)updateBackgroundColor {
+//    if ([returnBtn isEqual: @"夜间模式"]) {
+//        self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+//        btnTitle(returnBtn, @"日间模式");
+//    }else {
+    //    }
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    btnTitle(returnBtn, @"日间模式");
+    if (self.navigationController.navigationBar.barTintColor == [UIColor blackColor]) {
+        btnTitleColor(returnBtn);
+        btnTitle(returnBtn, @"夜间模式");
+    }
+//    view.hidden = YES;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     view.hidden = YES;
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.view removeFromSuperview];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 @end

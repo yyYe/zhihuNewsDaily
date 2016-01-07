@@ -10,6 +10,10 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <Masonry/Masonry.h>
 
+#define sizeFont(number) [UIFont fontWithName:@"Arial" size:number]
+#define btnStyle [UIButton buttonWithType:UIButtonTypeRoundedRect]
+#define btnTarget(btn,name) [btn addTarget:self action:@selector(name) forControlEvents:UIControlEventTouchUpInside]
+
 @interface BaseCell : UITableViewCell
 
 @property (strong) UIImageView *ivPhoto;
