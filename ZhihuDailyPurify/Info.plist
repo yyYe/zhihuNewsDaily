@@ -60,7 +60,7 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<key>View controller-based status bar appearance</key>
 	<false/>
 </dict>
 </plist>

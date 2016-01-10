@@ -36,10 +36,10 @@
     HomePageNewsVC *newsVC = [HomePageNewsVC new];
     NavigationController *nav = [[NavigationController alloc] initWithRootViewController:newsVC];
     
-    nav.navigationBar.translucent = NO;
     [nav.navigationBar setTintColor:[UIColor whiteColor]];
     //设置显示的颜色
     nav.navigationBar.barTintColor = BackgroundColor;
+    //状态栏字体默认黑色，现在设置白色
     nav.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     self.window.rootViewController = nav;
