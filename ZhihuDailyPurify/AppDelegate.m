@@ -9,18 +9,18 @@
 #import "AppDelegate.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <WeiboSDK/WeiboSDK.h>
+#import <TencentOpenAPI/TencentOAuth.h>
 
 #import "NavigationController.h"
 #import "GetNetworkData.h"
 #import "HomePageNewsVC.h"
-#import "CommentVC.h"
 
 #define screenSize CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
 
 #define kAppKey @"1346355262"
 
 @interface AppDelegate () <WeiboSDKDelegate> {
-//    UIView *view;
+    UIView *view;
 }
 
 @end
@@ -45,7 +45,6 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
-    /*
     [GetNetworkData getIvLogoDataWithBlock:^(NSDictionary *dict) {
         view = [UIView new];
         view.frame = screenSize;
@@ -61,17 +60,26 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         view.hidden = YES;
     });
-    */
      
     return YES;
 }
 
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    
+}
+
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+    
+}
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [WeiboSDK handleOpenURL:url delegate:self];
+    return [TencentOAuth HandleOpenURL:url];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     return [WeiboSDK handleOpenURL:url delegate:self];
+    return [TencentOAuth HandleOpenURL:url];
 }
 
 

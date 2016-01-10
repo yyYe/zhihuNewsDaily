@@ -13,6 +13,7 @@
 #import "SettingPageVC.h"
 #import "DetailsPageVC.h"
 #import "SelectBtnVC.h"
+#import "DetailsPageVC+ReturnValve.h"
 
 #import "ShowNews.h"
 #import "DetailsModel.h"
@@ -36,6 +37,7 @@
     
     NSInteger number;
     NSInteger timeCount;
+    NSInteger datePageNum;
     
     NSDictionary *photoDict;
     UIView *view;
@@ -63,6 +65,7 @@
         [self.tableView reloadData];
     }];
     
+    datePageNum = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -98,7 +101,6 @@
 }
 
 - (void)showData {
-    
     data1Fetched = NO;
     data2Fetched = NO;
     [GetNetworkData getNewDataWithBlock:^(NSDictionary *dict) {
@@ -113,6 +115,21 @@
         [self.tableView reloadData];
     }];
     
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:[self fetchURLWithDataIndex] parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSArray *list = [responseObject valueForKey:@"stories"];
+        [dateArray addObjectsFromArray:list];
+        data1Fetched = YES;
+        if (data2Fetched) {
+            self.dataArray = @[newsArray,dateArray];
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
+        }
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    }];
+    
+    /*
     [GetNetworkData getDateDataWithBlock:^(NSDictionary *dict) {
         NSArray *list = [dict valueForKey:@"stories"];
         [dateArray addObjectsFromArray:list];
@@ -124,6 +141,7 @@
         }
         [self.tableView reloadData];
     }];
+    */
 }
 
 - (void)showHeaderView {
@@ -143,6 +161,7 @@
         //初始化一个滚动视图
         ScrollView = [UIScrollView new];
         ScrollView.pagingEnabled = YES;
+        ScrollView.delegate = self;
         ScrollView.bounces = NO;
         ScrollView.contentSize = CGSizeMake(screenWidth * number, 0);
         
@@ -165,7 +184,7 @@
             UIButton *btn = [UIButton new];
             btn.tag = i;
             btnTarget(btn, btnTapped:);
-            [btn sd_setImageWithURL:[NSURL URLWithString:appendNews.avatar] forState:UIControlStateNormal];
+            btnImageURL(btn,appendNews.avatar);
             [ScrollView addSubview:btn];
             
             UILabel *titleLabel = [UILabel new];
@@ -176,7 +195,8 @@
             
             [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(ScrollView).offset(screenWidth * i);
-                make.top.right.bottom.equalTo(headerView);
+                make.top.bottom.equalTo(headerView);
+                make.width.equalTo(@(screenWidth));
             }];
             
             [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -208,7 +228,7 @@
 }
 
 //定时滚动
--(void)scrollTimer{
+-(void)scrollTimer {
     timeCount ++;
     //当
     if (timeCount == number) {
@@ -217,10 +237,10 @@
     [ScrollView setContentOffset:CGPointMake(screenWidth *1.f * timeCount, 0.0f) animated:YES];
 }
 
-
+//滚动到某个位置时调用
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat result = ScrollView.contentOffset.x;
-    NSInteger page = result/screenWidth * 1.f;
+    NSInteger page = result/320;
     pageControl.currentPage = page;
 }
 
@@ -313,7 +333,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self jumpDetailsBtnTapped:newsArray dictData:indexPath.row];
+    NSArray *array = [self.dataArray objectAtIndex:indexPath.section];
+    DetailsPageVC *detailsVC = [DetailsPageVC new];
+    [detailsVC jumpDetailsBtnTapped:array Number:indexPath.row dictData:webDict];
+    [self.navigationController pushViewController:detailsVC animated:YES];
 }
 
 - (void)showLeftButtonContext {
@@ -332,30 +355,22 @@
     selectVC = [SelectBtnVC new];
     [self.navigationController addChildViewController:selectVC];
     [self.navigationController.view addSubview:selectVC.view];
-//    UIView *removeView = [[[[self.view superview] superview] superview] subviews][3];
-//    [removeView removeFromSuperview];
 }
-
 
 - (void)btnTapped:(UIButton *)sender {
-    [self jumpDetailsBtnTapped:listArray dictData:sender.tag];
-}
-
-- (void)jumpDetailsBtnTapped:(NSArray *)list dictData:(NSInteger)data {
-    NSDictionary *dict = [list objectAtIndex:data];
-    NSNumber *idNumber = [dict valueForKey:@"id"];
-    NSString *idString = [idNumber stringValue];
-    NSString *webString = [webDict valueForKey:@"share_url"];
-    //取出点击的cell的id，把它替换到取到的数据接口最后面， 就是需要显示的完整链接
-    NSString *WEBString =[webString stringByReplacingOccurrencesOfString:@"3892357" withString:idString];
     DetailsPageVC *detailsVC = [DetailsPageVC new];
-    detailsVC.idString = idString;
-    detailsVC.request = [NSURLRequest requestWithURL:[NSURL URLWithString:WEBString]];
+    [detailsVC jumpDetailsBtnTapped:listArray Number:sender.tag dictData:webDict];
     [self.navigationController pushViewController:detailsVC animated:YES];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
+- (NSString *)fetchURLWithDataIndex {
+    datePageNum++;
+    NSDate *date = [NSDate date];
+    NSDateFormatter * formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"yyyyMMdd"];
+    NSInteger dateTime = [[formatter stringFromDate:date] integerValue] - datePageNum - 1;
+    NSString *urlString = [NSString stringWithFormat: @"http://news-at.zhihu.com/api/4/stories/before/%d",dateTime];
+    return urlString;
 }
 
 

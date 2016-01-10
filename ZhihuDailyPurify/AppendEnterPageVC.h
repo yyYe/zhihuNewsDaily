@@ -12,6 +12,7 @@
     NSArray *detailsArray;
     UITableView *tv;
     NSDictionary *webDict;
+    NSArray *listArray;
 }
 
 @property (strong) NSString *kJsonString;

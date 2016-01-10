@@ -60,11 +60,8 @@ static NSString * const kAppendDetailsURL = @"http://news-at.zhihu.com/api/4/the
     NSDate *date = [NSDate date];
     NSDateFormatter * formatter = [NSDateFormatter new];
     [formatter setDateFormat:@"yyyyMMdd"];
-    
-    NSInteger dateTime = [[formatter stringFromDate:date] integerValue] - 1;
-    
-    NSString *urlString = [NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/stories/before/%d",dateTime];
-    
+    NSInteger dateTime = [[formatter stringFromDate:date] integerValue];
+    NSString *urlString = [NSString stringWithFormat: @"http://news-at.zhihu.com/api/4/stories/before/%d",dateTime];
     return urlString;
 }
 

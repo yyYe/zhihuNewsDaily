@@ -10,5 +10,6 @@
 
 @interface DateStoriesCell : BaseCell
 
-@property (strong,nonatomic) NSDictionary *dictData;
+@property (strong, nonatomic) NSDictionary *dictData;
+
 @end

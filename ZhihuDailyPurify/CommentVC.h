@@ -8,7 +8,9 @@
 
 #import "BaseVC.h"
 
-@interface CommentVC : BaseVC
+@interface CommentVC : BaseVC {
+    NSArray *listData;
+}
 
 @property (strong) NSString *idString;
 @property (strong) NSString *comments;

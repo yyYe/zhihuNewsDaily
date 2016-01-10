@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02E01B92F02218BF0F03CB50 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACAF1271BCC34B6699C6601 /* libPods.a */; };
+		02E01B92F02218BF0F03CB50 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACAF1271BCC34B6699C6601 /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		1909B3D31C3FF23A005FB83F /* ShortCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1909B3D21C3FF23A005FB83F /* ShortCommentsCell.m */; };
+		1909B3D61C3FF6CE005FB83F /* ShortComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 1909B3D51C3FF6CE005FB83F /* ShortComments.m */; };
+		1909B3DB1C40D3AA005FB83F /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1909B3D91C40D3AA005FB83F /* TencentOpenApi_IOS_Bundle.bundle */; };
+		1909B3DC1C40D3AA005FB83F /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1909B3DA1C40D3AA005FB83F /* TencentOpenAPI.framework */; };
+		1909B5BF1C40EC5C005FB83F /* DetailsPageVC+ReturnValve.m in Sources */ = {isa = PBXBuildFile; fileRef = 1909B5BE1C40EC5C005FB83F /* DetailsPageVC+ReturnValve.m */; };
+		1909B5C61C415F9F005FB83F /* AppendDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1909B5C51C415F9F005FB83F /* AppendDetailsCell.m */; };
+		1909B5C91C4161C6005FB83F /* PersonalDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1909B5C81C4161C6005FB83F /* PersonalDataVC.m */; };
+		1909B5CC1C41630D005FB83F /* PersonalDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1909B5CB1C41630D005FB83F /* PersonalDataCell.m */; };
 		191CC7281C36AC99001936C6 /* LoginPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 191CC7271C36AC99001936C6 /* LoginPageVC.m */; };
 		191CC72B1C36ACCC001936C6 /* SettingPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 191CC72A1C36ACCC001936C6 /* SettingPageVC.m */; };
 		191EB16A1C391EC6001011C9 /* HeadPortrait.m in Sources */ = {isa = PBXBuildFile; fileRef = 191EB1691C391EC6001011C9 /* HeadPortrait.m */; };
@@ -51,6 +59,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1909B3D11C3FF23A005FB83F /* ShortCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShortCommentsCell.h; sourceTree = "<group>"; };
+		1909B3D21C3FF23A005FB83F /* ShortCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShortCommentsCell.m; sourceTree = "<group>"; };
+		1909B3D41C3FF6CE005FB83F /* ShortComments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShortComments.h; sourceTree = "<group>"; };
+		1909B3D51C3FF6CE005FB83F /* ShortComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShortComments.m; sourceTree = "<group>"; };
+		1909B3D91C40D3AA005FB83F /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = ZhihuDailyPurify/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		1909B3DA1C40D3AA005FB83F /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = ZhihuDailyPurify/TencentOpenAPI.framework; sourceTree = "<group>"; };
+		1909B5BD1C40EC5C005FB83F /* DetailsPageVC+ReturnValve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DetailsPageVC+ReturnValve.h"; sourceTree = "<group>"; };
+		1909B5BE1C40EC5C005FB83F /* DetailsPageVC+ReturnValve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DetailsPageVC+ReturnValve.m"; sourceTree = "<group>"; };
+		1909B5C41C415F9F005FB83F /* AppendDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppendDetailsCell.h; sourceTree = "<group>"; };
+		1909B5C51C415F9F005FB83F /* AppendDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppendDetailsCell.m; sourceTree = "<group>"; };
+		1909B5C71C4161C6005FB83F /* PersonalDataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataVC.h; sourceTree = "<group>"; };
+		1909B5C81C4161C6005FB83F /* PersonalDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataVC.m; sourceTree = "<group>"; };
+		1909B5CA1C41630D005FB83F /* PersonalDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataCell.h; sourceTree = "<group>"; };
+		1909B5CB1C41630D005FB83F /* PersonalDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataCell.m; sourceTree = "<group>"; };
 		191CC7261C36AC99001936C6 /* LoginPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPageVC.h; sourceTree = "<group>"; };
 		191CC7271C36AC99001936C6 /* LoginPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPageVC.m; sourceTree = "<group>"; };
 		191CC7291C36ACCC001936C6 /* SettingPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingPageVC.h; sourceTree = "<group>"; };
@@ -130,14 +152,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				199F28DB1C3E915000AFDFB9 /* CoreTelephony.framework in Frameworks */,
 				199F28E31C3E918600AFDFB9 /* CoreGraphics.framework in Frameworks */,
+				199F28D71C3E913800AFDFB9 /* SystemConfiguration.framework in Frameworks */,
+				199F28D91C3E914500AFDFB9 /* Security.framework in Frameworks */,
 				199F28E11C3E917D00AFDFB9 /* Foundation.framework in Frameworks */,
 				199F28DF1C3E917000AFDFB9 /* UIKit.framework in Frameworks */,
 				199F28DD1C3E916200AFDFB9 /* CoreText.framework in Frameworks */,
-				199F28DB1C3E915000AFDFB9 /* CoreTelephony.framework in Frameworks */,
-				199F28D91C3E914500AFDFB9 /* Security.framework in Frameworks */,
-				199F28D71C3E913800AFDFB9 /* SystemConfiguration.framework in Frameworks */,
 				199F28D51C3E912D00AFDFB9 /* ImageIO.framework in Frameworks */,
+				1909B3DC1C40D3AA005FB83F /* TencentOpenAPI.framework in Frameworks */,
 				199F28D31C3E912100AFDFB9 /* QuartzCore.framework in Frameworks */,
 				02E01B92F02218BF0F03CB50 /* libPods.a in Frameworks */,
 			);
@@ -155,6 +178,8 @@
 				19B956461C35239B0035C50B /* TopStoriesCell.m */,
 				19B956481C3529870035C50B /* DateStoriesCell.h */,
 				19B956491C3529870035C50B /* DateStoriesCell.m */,
+				1909B5C41C415F9F005FB83F /* AppendDetailsCell.h */,
+				1909B5C51C415F9F005FB83F /* AppendDetailsCell.m */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -168,6 +193,8 @@
 				199F28D01C3E329800AFDFB9 /* LocalPhotoCell.m */,
 				191EB1AC1C395A31001011C9 /* AppendNewsCell.h */,
 				191EB1AD1C395A31001011C9 /* AppendNewsCell.m */,
+				1909B5CA1C41630D005FB83F /* PersonalDataCell.h */,
+				1909B5CB1C41630D005FB83F /* PersonalDataCell.m */,
 			);
 			name = AppendNews;
 			sourceTree = "<group>";
@@ -190,6 +217,8 @@
 			children = (
 				199F28A41C3BC52400AFDFB9 /* SetUpPageCell.h */,
 				199F28A51C3BC52400AFDFB9 /* SetUpPageCell.m */,
+				1909B3D11C3FF23A005FB83F /* ShortCommentsCell.h */,
+				1909B3D21C3FF23A005FB83F /* ShortCommentsCell.m */,
 			);
 			name = SetUpPage;
 			sourceTree = "<group>";
@@ -212,6 +241,8 @@
 				191CC72A1C36ACCC001936C6 /* SettingPageVC.m */,
 				199F28B41C3BFFB700AFDFB9 /* AppendEnterPageVC.h */,
 				199F28B51C3BFFB700AFDFB9 /* AppendEnterPageVC.m */,
+				1909B5C71C4161C6005FB83F /* PersonalDataVC.h */,
+				1909B5C81C4161C6005FB83F /* PersonalDataVC.m */,
 			);
 			name = AppendPage;
 			sourceTree = "<group>";
@@ -225,6 +256,8 @@
 				19448CE41C38F49600DB982F /* DetailsPageVC.m */,
 				199F28CC1C3E06F000AFDFB9 /* CommentVC.h */,
 				199F28CD1C3E06F000AFDFB9 /* CommentVC.m */,
+				1909B5BD1C40EC5C005FB83F /* DetailsPageVC+ReturnValve.h */,
+				1909B5BE1C40EC5C005FB83F /* DetailsPageVC+ReturnValve.m */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -302,6 +335,8 @@
 				197DF4BE1C3A46A50098466E /* AppendNews.m */,
 				199F28BA1C3CC1CE00AFDFB9 /* EditorsModel.h */,
 				199F28BB1C3CC1CE00AFDFB9 /* EditorsModel.m */,
+				1909B3D41C3FF6CE005FB83F /* ShortComments.h */,
+				1909B3D51C3FF6CE005FB83F /* ShortComments.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -331,6 +366,8 @@
 		F42B869050FD225BB5DA2722 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1909B3D91C40D3AA005FB83F /* TencentOpenApi_IOS_Bundle.bundle */,
+				1909B3DA1C40D3AA005FB83F /* TencentOpenAPI.framework */,
 				199F28E21C3E918600AFDFB9 /* CoreGraphics.framework */,
 				199F28E01C3E917D00AFDFB9 /* Foundation.framework */,
 				199F28DE1C3E917000AFDFB9 /* UIKit.framework */,
@@ -405,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1909B3DB1C40D3AA005FB83F /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				19B9562C1C34F4D00035C50B /* LaunchScreen.storyboard in Resources */,
 				19B956291C34F4D00035C50B /* Assets.xcassets in Resources */,
 				19B956271C34F4D00035C50B /* Main.storyboard in Resources */,
@@ -478,11 +516,15 @@
 				199F28AD1C3BC6C600AFDFB9 /* PersonalLayout.m in Sources */,
 				197DF4C21C3A46D60098466E /* ShowNews.m in Sources */,
 				19448CE51C38F49600DB982F /* DetailsPageVC.m in Sources */,
+				1909B5C61C415F9F005FB83F /* AppendDetailsCell.m in Sources */,
 				199F28C21C3D541100AFDFB9 /* SetUpPageVC.m in Sources */,
 				199F28B61C3BFFB700AFDFB9 /* AppendEnterPageVC.m in Sources */,
+				1909B5CC1C41630D005FB83F /* PersonalDataCell.m in Sources */,
 				191CC72B1C36ACCC001936C6 /* SettingPageVC.m in Sources */,
 				19448CE81C38F72E00DB982F /* DetailsModel.m in Sources */,
+				1909B3D61C3FF6CE005FB83F /* ShortComments.m in Sources */,
 				199F28CE1C3E06F000AFDFB9 /* CommentVC.m in Sources */,
+				1909B3D31C3FF23A005FB83F /* ShortCommentsCell.m in Sources */,
 				19B9563E1C3501880035C50B /* BaseCell.m in Sources */,
 				191EB1AE1C395A31001011C9 /* AppendNewsCell.m in Sources */,
 				191EB1B71C3960B6001011C9 /* SelectBtnVC.m in Sources */,
@@ -490,7 +532,9 @@
 				19B9563B1C34FB900035C50B /* GetNetworkData.m in Sources */,
 				19B956211C34F4D00035C50B /* AppDelegate.m in Sources */,
 				19B9561E1C34F4D00035C50B /* main.m in Sources */,
+				1909B5BF1C40EC5C005FB83F /* DetailsPageVC+ReturnValve.m in Sources */,
 				19B956471C35239B0035C50B /* TopStoriesCell.m in Sources */,
+				1909B5C91C4161C6005FB83F /* PersonalDataVC.m in Sources */,
 				199F28B01C3BE5AB00AFDFB9 /* NavigationController.m in Sources */,
 				199F28A01C3BC4A800AFDFB9 /* PersonalHomePageVC.m in Sources */,
 				191EB16D1C392166001011C9 /* HeaderPhotoCell.m in Sources */,
@@ -605,8 +649,51 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZhihuDailyPurify",
+				);
 				INFOPLIST_FILE = ZhihuDailyPurify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"LTNavigationBar\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"Realm\"",
+					"-l\"SDWebImage\"",
+					"-l\"WeiboSDK\"",
+					"-l\"YYModel\"",
+					"-l\"c++\"",
+					"-l\"realm-ios\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.loufq.ZhihuNewsDaily;
 				PRODUCT_NAME = ZhihuNewsDaily;
 			};
@@ -618,8 +705,51 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZhihuDailyPurify",
+				);
 				INFOPLIST_FILE = ZhihuDailyPurify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"LTNavigationBar\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"Realm\"",
+					"-l\"SDWebImage\"",
+					"-l\"WeiboSDK\"",
+					"-l\"YYModel\"",
+					"-l\"c++\"",
+					"-l\"realm-ios\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.loufq.ZhihuNewsDaily;
 				PRODUCT_NAME = ZhihuNewsDaily;
 			};

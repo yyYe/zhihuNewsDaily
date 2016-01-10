@@ -7,13 +7,20 @@
 //
 
 #import "LoginPageVC.h"
-#import <WeiboSDK/WeiboSDK.h>
+#import <TencentOpenAPI/TencentOAuth.h>
 
 #define ButtonStyle [UIButton buttonWithType:UIButtonTypeRoundedRect]
 #define PhotoName(name) ([[UIImageView alloc] initWithImage:[UIImage imageNamed:name]])
 #define buttonTitle(name) setTitle:name forState:UIControlStateNormal
 
 #define kRedirectURL @"http://www.sina.com"
+#define kTencnetURL @"1105023127"
+
+@interface LoginPageVC () <TencentSessionDelegate>  {
+    TencentOAuth *tencentOAuth;
+}
+
+@end
 
 @implementation LoginPageVC
 
@@ -23,6 +30,10 @@
     self.view.backgroundColor = getColor(0.11, 0.51, 0.84);
     [self navigationsController];
     [self showRegisterPage];
+    
+    tencentOAuth=[[TencentOAuth alloc]initWithAppId:kTencnetURL andDelegate:self];
+    //4，设置需要的权限列表，此处尽量使用什么取什么。
+    self.dataArray = [NSArray arrayWithObjects:@"get_user_info",@"get_simple_userinfo",@"add_t", nil];//@"get_simple_userinfo"可以省略
 }
 
 - (void)navigationsController {
@@ -63,11 +74,12 @@
     UIButton *tenxunBtn = ButtonStyle;
     tenxunBtn.layer.cornerRadius = 5.f;
     tenxunBtn.backgroundColor = [UIColor whiteColor];
-    [tenxunBtn buttonTitle(@"腾讯微博")];
+    btnTarget(tenxunBtn, loginAct);
+    [tenxunBtn buttonTitle(@"腾讯QQ")];
     
     [self.view addSubview:tenxunBtn];
     
-    UIImageView *ivTenxun = PhotoName(@"tencent-weibo-B");
+    UIImageView *ivTenxun = PhotoName(@"sync_qzone_selected");
     [tenxunBtn addSubview:ivTenxun];
     
     [xinlangBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -105,8 +117,13 @@
 }
 
 - (void)loginWeiboTapped {
-    WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare]];
+//    WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare]];
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = kRedirectURL;
+    request.scope = @"all";
     [WeiboSDK sendRequest:request];
+    [self.tableView reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (WBMessageObject *)messageToShare {
@@ -115,11 +132,20 @@
     return message;
 }
 
+- (void)tencentBolgLoginTapped {
+    
+}
+
 - (void)returnBeforePage {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark login
 
+- (void)loginAct {
+    [tencentOAuth authorize:self.dataArray inSafari:NO];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 @end

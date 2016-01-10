@@ -43,15 +43,11 @@ static NSString * const kAppendDetailsURL = @"http://news-at.zhihu.com/api/4/the
     
     //获取头像图片，取到的是一个字典，只有文本信息和图片，把这当成一个数组存到数组里。现在的问题是存进去是空的
     /*
-     [GetNetworkData getPhotoDataWithBlock:^(NSDictionary *dict) {
-     NSLog(@"%@",dict);
-     NSString *dictString = [dict valueForKey:@"img"];
-     HeadPortrait *headPortrait = [HeadPortrait new];
-     headPortrait.url = [NSURL URLWithString:dictString];
-     headPortrait.text = [dict valueForKey:@"text"];
-     self.dataArray = @[
-     headPortrait
-     ];
+     [GetNetworkData getAvatarDataWithBlock:^(NSDictionary *data) {
+     dictInfo = data;
+     headPortrait = [HeadPortrait new];
+     headPortrait.avatar = [dictInfo valueForKey:@"avatar"];
+     headPortrait.text = [dictInfo valueForKey:@"text"];
      [self.tableView reloadData];
      }];*/
     
@@ -61,24 +57,20 @@ static NSString * const kAppendDetailsURL = @"http://news-at.zhihu.com/api/4/the
         
         self.dataArray = @[
                            @[@{
-                                 @"type":@1,
-                                 @"avatar":@"tabBar_essence_click_icon",
+                                 @"avatar":@"a111",
                                  @"text":@"请登录"
                                  },
                              @[@{
-                                   @"type":@2,
                                    @"avatar":@"yellowStar40Disabled",
                                    @"text":@"我的收藏"
                                    },
                                @{
-                                   @"type":@2,
                                    @"avatar":@"myFavourite",
                                    @"text":@"离线下载"
                                    },
                                ]
                              ],
                            @[@{
-                                 @"type":@2,
                                  @"avatar":@"tabBar_essence_click_icon",
                                  @"text":@"首页"
                                  },
@@ -131,10 +123,13 @@ static NSString * const kAppendDetailsURL = @"http://news-at.zhihu.com/api/4/the
     
     UITableViewCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    cell.textLabel.font = sizeFont(14);
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             cell.imageView.image = [UIImage imageNamed:[obj valueForKey:@"avatar"]];
+            cell.imageView.layer.cornerRadius = 22;
+            cell.imageView.clipsToBounds = YES;//图片等时候需要调用
             cell.textLabel.text = [obj valueForKey:@"text"];
             cell.backgroundColor = BackgroundColor;
         }else {
@@ -146,7 +141,6 @@ static NSString * const kAppendDetailsURL = @"http://news-at.zhihu.com/api/4/the
     }else if (indexPath.section == 1) {
         cell.imageView.image = [UIImage imageNamed:[obj valueForKey:@"avatar"]];
         cell.textLabel.text = [obj valueForKey:@"text"];
-        cell.textLabel.font = sizeFont(14);
         cell.backgroundColor = getColor(0.85, 0.85, 0.85);
     }else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"AppendNewsCell"];

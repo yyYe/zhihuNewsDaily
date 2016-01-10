@@ -13,7 +13,7 @@
 - (void)layout {
     
     self.titleLabel = [UILabel new];
-    self.titleLabel.font = [UIFont fontWithName:@"Arial" size:15.f];
+    self.titleLabel.font = sizeFont(15.f);
     [self addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
@@ -28,11 +28,14 @@
         make.right.equalTo(self).offset(-50);
         make.centerY.equalTo(self);
     }];
+    
 }
 
 - (void)setDictData:(NSDictionary *)dictData {
     
     self.titleLabel.text = [dictData valueForKey:@"name"];
 }
+
+
 
 @end

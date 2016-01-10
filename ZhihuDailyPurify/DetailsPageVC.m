@@ -9,6 +9,7 @@
 #import "DetailsPageVC.h"
 #import "CommentVC.h"
 
+
 #define string(strName,number) NSString *strName = [NSString stringWithFormat:@"%ld",number+1]
 #define ivStyle(ivName,imageName) UIImageView *ivName = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]]
 #define labelStyle(labelName) UILabel *labelName = [UILabel new]

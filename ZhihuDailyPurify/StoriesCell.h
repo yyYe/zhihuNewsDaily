@@ -8,7 +8,7 @@
 
 #import "BaseCell.h"
 
-@interface StoriesCell : BaseCell
+@interface StoriesCell : BaseCell 
 
 @property (strong,nonatomic) NSDictionary *dictData;
 

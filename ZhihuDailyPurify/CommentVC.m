@@ -7,7 +7,9 @@
 //
 
 #import "CommentVC.h"
-
+#import <UITableView+FDTemplateLayoutCell.h>
+#import "ShortCommentsCell.h"
+#import "ShortComments.h"
 
 //查看长评论链接
 static NSString *const kLongCommentsURL = @"http://news-at.zhihu.com/api/4/story/7696848/long-comments";
@@ -50,6 +52,32 @@ static NSString *const kShortCommentsURL = @"http://news-at.zhihu.com/api/4/stor
     
 }
 
+- (void)shortCommentsBtnTapped {
+    UITableView *tv = [UITableView new];
+    tv.dataSource = self;
+    tv.delegate = self;
+    tv.tag = 200;
+    tv.rowHeight = UITableViewAutomaticDimension;
+    tv.rowHeight = 200;
+    [self.view addSubview:tv];
+    [tv mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    [tv registerClass:[ShortCommentsCell class] forCellReuseIdentifier:@"ShortCommentsCell"];
+    
+    NSString *storyExtraString =[kShortCommentsURL stringByReplacingOccurrencesOfString:@"7696848" withString:_idString];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:storyExtraString parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        listData = [responseObject valueForKey:@"comments"];
+        listData = [NSArray yy_modelArrayWithClass:[ShortComments class] json:listData];
+        [tv reloadData];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    }];
+    
+}
+
 - (void)tableHeaderViewAndTableFooterView {
     
     [self.view addSubview:self.tableView];
@@ -57,6 +85,8 @@ static NSString *const kShortCommentsURL = @"http://news-at.zhihu.com/api/4/stor
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     UIView *headerView = [UIView new];
     headerView.backgroundColor = BackgroundColor;
@@ -103,39 +133,36 @@ static NSString *const kShortCommentsURL = @"http://news-at.zhihu.com/api/4/stor
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView.tag == 100) {
         return 10;
-    }else {
-        return 5;
     }
-    return 10;
+    return listData.count;
 }
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (tableView.tag == 100) {
+//        return 44;
+//    }else {
+//        return 150;
+//    }
+//}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [UITableViewCell new];
+    
     if (tableView.tag == 100) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
         cell.textLabel.text = [NSString stringWithFormat:@"第%d个cell",indexPath.row];
         return cell;
-    }else if(tableView.tag == 200){
-        cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
-        return cell;
+    }else {
+        id shortComments = [listData objectAtIndex:indexPath.row];
+        ShortCommentsCell *shortCell = [tableView dequeueReusableCellWithIdentifier:@"ShortCommentsCell"];
+        shortCell.dictData = shortComments;
+        return shortCell;
     }
-    return cell;
+    return nil;
 }
 
 - (void)returnBeformPage {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)shortCommentsBtnTapped {
-    UITableView *tv = [UITableView new];
-    tv.dataSource = self;
-    tv.delegate = self;
-    tv.tag = 200;
-    [self.view addSubview:tv];
-    [tv mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    
-    
-}
 
 @end

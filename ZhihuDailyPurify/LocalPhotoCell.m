@@ -21,8 +21,8 @@
     [self addSubview:self.rightBtn];
     
     self.ivPhoto = [UIImageView new];
-    self.ivPhoto.layer.cornerRadius = 15.f;
-    self.ivPhoto.clipsToBounds = YES;
+//    self.ivPhoto.layer.cornerRadius = 10.f;
+//    self.ivPhoto.clipsToBounds = YES;
     [self.leftBtn addSubview:self.ivPhoto];
     
     self.titleLabel = [UILabel new];
@@ -32,8 +32,8 @@
     [self.leftBtn addSubview:self.titleLabel];
     
     self.ivLoaclPhoto = [UIImageView new];
-    self.ivLoaclPhoto.layer.cornerRadius = 15.f;
-    self.ivLoaclPhoto.clipsToBounds = YES;
+//    self.ivLoaclPhoto.layer.cornerRadius = 15.f;
+//    self.ivLoaclPhoto.clipsToBounds = YES;
     [self.rightBtn addSubview:self.ivLoaclPhoto];
     
     self.descLabel = [UILabel new];
@@ -44,20 +44,17 @@
     
     [self.leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.top.equalTo(self);
-        make.right.equalTo(self.rightBtn.mas_left);
-        make.width.equalTo(self.rightBtn);
+        make.right.equalTo(self.mas_centerX);
     }];
     
     [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.bottom.top.equalTo(self);
-        make.left.equalTo(self.rightBtn.mas_right);
-        make.width.equalTo(self.leftBtn);
+        make.left.equalTo(self.mas_centerX);
     }];
     
     [self.ivPhoto mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(20);
+        make.left.equalTo(self.leftBtn).offset(20);
         make.centerY.equalTo(self);
-        make.right.equalTo(self.titleLabel.mas_left).offset(-20);
         make.height.width.equalTo(@20);
     }];
     
@@ -68,12 +65,12 @@
     
     [self.ivLoaclPhoto mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.ivPhoto);
-        make.right.equalTo(self.descLabel.mas_left).offset(-20);
+        make.left.equalTo(self.rightBtn).offset(20);
         make.height.width.equalTo(self.ivPhoto);
     }];
     
     [self.descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-50);
+        make.left.equalTo(self.ivLoaclPhoto.mas_right).offset(20);
         make.centerY.equalTo(self.ivPhoto);
     }];
     

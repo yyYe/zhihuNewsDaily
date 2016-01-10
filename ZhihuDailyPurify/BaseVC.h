@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 //#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
 #import <MJRefresh/MJRefresh.h>
 #import <Masonry/Masonry.h>
 #import "GetNetworkData.h"
 #import <YYModel/YYModel.h>
 #import <UINavigationBar+Awesome.h>
 #import <AFNetworking/AFNetworking.h>
+#import <WeiboSDK/WeiboSDK.h>
 
 #define getColor(_r,_g,_b) ([UIColor colorWithRed:_r green:_g blue:_b alpha:1])
 #define screenWidth [UIScreen mainScreen].bounds.size.width
@@ -32,6 +34,7 @@
 #define buttonStyle(btn) UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom]
 
 #define barBtnItem(btn,viewName) UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithCustomView:viewName]
+#define btnImageURL(btn,name) [btn sd_setImageWithURL:[NSURL URLWithString:name] forState:UIControlStateNormal]
 
 
 @interface BaseVC : UIViewController <UITableViewDataSource,UITableViewDelegate>

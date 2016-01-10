@@ -26,7 +26,7 @@
         make.left.equalTo(self).offset(20);
         make.top.equalTo(self).offset(6);
         make.right.equalTo(self.titleLabel.mas_left).offset(-20);
-        make.height.equalTo(@30);
+        make.height.width.equalTo(@22);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -38,7 +38,6 @@
 
 - (void)setDictData:(NSDictionary *)dicData {
     [self.ivPhoto sd_setImageWithURL:[NSURL URLWithString:[dicData valueForKey:@"avatar"]]];
-//    self.ivPhoto.image = [UIImage imageNamed:[dicData valueForKey:@"url"]];
     self.titleLabel.text = [dicData valueForKey:@"text"];
 }
 

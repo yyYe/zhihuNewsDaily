@@ -11,8 +11,12 @@
 #import "SettingPageVC.h"
 #import "DetailsPageVC.h"
 #import "EditorsModel.h"
+#import "DetailsPageVC+ReturnValve.h"
+#import "AppendDetailsCell.h"
+#import "PersonalDataVC.h"
 
 #import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/UIButton+WebCache.h>
 
 #define customViewHeight 50.0
 
@@ -30,6 +34,7 @@
     }];
     
     [self.tableView registerClass:[StoriesCell class] forCellReuseIdentifier:@"StoriesCell"];
+    [self.tableView registerClass:[AppendDetailsCell class] forCellReuseIdentifier:@"AppendDetailsCell"];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
@@ -56,10 +61,12 @@
     headerView.frame = CGRectMake(0, 0, 0, headerTableView);
     [self.view addSubview:headerView];
     
-    UIImageView *ivPhoto = [UIImageView new];
-    [ivPhoto sd_setImageWithURL:[NSURL URLWithString:[dict valueForKey:@"image"]]];
-    [headerView addSubview:ivPhoto];
-    [ivPhoto mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIButton *ivBtn = [UIButton new];
+    ivBtn.tag = 100;
+    btnTarget(ivBtn, btnTapped:);
+    [ivBtn sd_setImageWithURL:[NSURL URLWithString:[dict valueForKey:@"image"]] forState:UIControlStateNormal];
+    [headerView addSubview:ivBtn];
+    [ivBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(headerView);
     }];
 
@@ -115,7 +122,7 @@
     
     detailsArray = [NSArray yy_modelArrayWithClass:[EditorsModel class] json:detailsArray];
     
-    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, customViewHeight)];
+    UIButton *customView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, screenWidth, customViewHeight)];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     titleLabel.backgroundColor = [UIColor whiteColor];
 
@@ -126,11 +133,13 @@
     
     for (NSInteger i = 0; i < detailsArray.count; i++) {
         EditorsModel *editors = detailsArray[i];
-        UIImageView *ivheadPortrait = [UIImageView new];
+        UIButton *ivheadPortrait = [UIButton new];
+        ivheadPortrait.tag = i;
         ivheadPortrait.clipsToBounds = YES;
         ivheadPortrait.layer.cornerRadius = 15.0;
         ivheadPortrait.frame = CGRectMake(50 + i * 40, 10, 30, 30);
-        [ivheadPortrait sd_setImageWithURL:[NSURL URLWithString:editors.avatar]];
+        [ivheadPortrait sd_setImageWithURL:[NSURL URLWithString:editors.avatar] forState:UIControlStateNormal];
+        btnTarget(ivheadPortrait, ivHeaderViewTapped:);
         [customView addSubview:ivheadPortrait];
     }
     
@@ -144,23 +153,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
-    StoriesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoriesCell"];
-    
-    cell.dictData = dict;
-    return cell;
+    if (dict.count == 3) {
+        AppendDetailsCell *detailsCell = [tableView dequeueReusableCellWithIdentifier:@"AppendDetailsCell"];
+        detailsCell.dicData = dict;
+        return detailsCell;
+    }else {
+        StoriesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StoriesCell"];
+        cell.dictData = dict;
+        return cell;
+    }
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
-    NSNumber *idNumber = [dict valueForKey:@"id"];
-    NSString *idString = [idNumber stringValue];
-    //    long num = [idString longValue];
-    NSString *webString = [webDict valueForKey:@"share_url"];
-    //取出点击的cell的id，把它替换到取到的数据接口最后面， 就是需要显示的完整链接
-    NSString *WEBString =[webString stringByReplacingOccurrencesOfString:@"3892357" withString:idString];
     DetailsPageVC *detailsVC = [DetailsPageVC new];
-    detailsVC.request = [NSURLRequest requestWithURL:[NSURL URLWithString:WEBString]];
+    [detailsVC jumpDetailsBtnTapped:self.dataArray Number:indexPath.row dictData:webDict];
     [self.navigationController pushViewController:detailsVC animated:YES];
 }
 
@@ -168,7 +175,19 @@
     SettingPageVC *pageVC = [SettingPageVC new];
     [self.navigationController addChildViewController:pageVC];
     [self.navigationController.view addSubview:pageVC.view];
-    
+}
+
+- (void)btnTapped:(UIButton *)sender {
+    DetailsPageVC *detailsVC = [DetailsPageVC new];
+    [detailsVC jumpHeaderViewDetailsTapped:webDict Number:sender.tag];
+    [self.navigationController pushViewController:detailsVC animated:YES];
+}
+
+- (void)ivHeaderViewTapped:(UIButton *)sender {
+    id dict = [detailsArray objectAtIndex:sender.tag];
+    PersonalDataVC *personalVC = [PersonalDataVC new];
+    personalVC.dicData = dict;
+    [self.navigationController pushViewController:personalVC animated:YES];
 }
 
 @end

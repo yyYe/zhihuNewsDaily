@@ -14,6 +14,7 @@
     NSDictionary *detailsDict;
     NSArray *array;
     HeadPortrait *headPortrait;
+    NSDictionary *dictInfo;
 }
 
 @end

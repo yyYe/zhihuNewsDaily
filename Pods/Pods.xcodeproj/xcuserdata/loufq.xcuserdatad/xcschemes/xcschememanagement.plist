@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,12 +57,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>314F0792FB4CA846CA612B0752F1E877</key>
+		<key>13890A5FE657E98DEEEAF5DEAF62A27B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D924067458863284856A6EC56E144A2</key>
+		<key>1D1B2D62587817269B80C382A8474FFC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,22 +77,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A7B3B5BB3F72F91009528849E9913F8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7A2347B2978B79B26758FFB9C5D7FC9C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>81A311CB0A706632BB274E94C0FC99D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>8F74D9EA91F4C43190670066BAC37D44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CB160CBB7959C32656A2136F5679B4E6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4FD1EA6E275E8F91F1EF432C87ED3D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD5E94A3DF23F43BF035D291C807C78C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

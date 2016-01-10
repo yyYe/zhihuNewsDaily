@@ -8,7 +8,8 @@
 
 #import "BaseCell.h"
 
-@interface AppendNewsCell : BaseCell
+@interface AppendNewsCell : BaseCell 
+
 @property (strong,nonatomic) NSDictionary *dictData;
 
 @end
