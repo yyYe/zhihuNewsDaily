@@ -14,6 +14,7 @@
 #import "NavigationController.h"
 #import "GetNetworkData.h"
 #import "HomePageNewsVC.h"
+#import "ShowInfoVC.h"
 
 #define screenSize CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
 
@@ -34,6 +35,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     HomePageNewsVC *newsVC = [HomePageNewsVC new];
+//    ShowInfoVC *newsVC = [ShowInfoVC new];
     NavigationController *nav = [[NavigationController alloc] initWithRootViewController:newsVC];
     
     [nav.navigationBar setTintColor:[UIColor whiteColor]];
@@ -44,7 +46,7 @@
     
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
-    
+    /*
     [GetNetworkData getIvLogoDataWithBlock:^(NSDictionary *dict) {
         view = [UIView new];
         view.frame = screenSize;
@@ -60,7 +62,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         view.hidden = YES;
     });
-     
+    */
     return YES;
 }
 
